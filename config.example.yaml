@@ -1,0 +1,47 @@
+# Example configuration for steam-updater.
+# Run:  steam-updater translate -i export.json -o out.json -c config.example.yaml
+
+# Language to translate FROM (must exist in the exported JSON).
+source_language: english
+
+# Steam language codes to translate INTO. Run `steam-updater list-languages`
+# to see all supported codes.
+target_languages:
+  - french
+  - german
+  - spanish        # Spanish (Spain)
+  - latam          # Latin American Spanish
+  - brazilian      # Brazilian Portuguese
+  - schinese       # Simplified Chinese
+  - tchinese       # Traditional Chinese
+  - japanese
+  - koreana        # Korean
+  - russian
+
+# Store-page fields to translate. These are the keys Steam uses in the export.
+fields:
+  - app[content][about]               # the full written description (BBCode)
+  - app[content][short_description]   # the short description (~300 char budget)
+
+# Anthropic model id. Override with --model on the command line if you want a
+# cheaper/faster model (e.g. claude-sonnet-4-6, claude-haiku-4-5).
+model: claude-opus-4-8
+max_tokens: 8000
+
+# Steam truncates short descriptions at roughly 300 characters.
+short_description_field: app[content][short_description]
+short_description_max_chars: 300
+
+# Proper nouns to keep verbatim across every language.
+do_not_translate:
+  - Halcyon Drift          # the game's title (example)
+  - Captain Vega           # a character name (example)
+
+# Force specific renderings of terms. term -> translation.
+glossary: {}
+  # "wishlist": "lista de deseos"
+
+# Optional tone/voice guidance applied to every translation.
+style: >
+  Energetic and concise marketing voice aimed at PC gamers. Keep sentences
+  short and punchy.

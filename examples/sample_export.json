@@ -1,0 +1,9 @@
+{
+  "itemid": "1234567",
+  "languages": {
+    "english": {
+      "app[content][about]": "[h1]Halcyon Drift[/h1]\n\nCommand a lone starship on the edge of known space. Captain Vega must scavenge wrecks, outwit pirates, and keep the crew alive across a procedurally generated galaxy.\n\n[b]Features[/b]\n[list]\n[*]Deep ship-building with hundreds of modules\n[*]Permadeath roguelike campaigns\n[*]A reactive story that remembers your choices\n[/list]\n\nWishlist now and join the drift.",
+      "app[content][short_description]": "A brutal space-survival roguelike. Scavenge, fight, and keep your crew alive across a living galaxy."
+    }
+  }
+}
