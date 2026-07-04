@@ -28,6 +28,15 @@ fields:
 model: claude-opus-4-8
 max_tokens: 8000
 
+# --- Optimizer (steam-updater optimize / pipeline) ---
+# Folder with the optimizer's inputs: game.md (context, audience, JTBD),
+# examples/ (descriptions from comparable games), assets.yaml (gif/mp4
+# manifest). Scaffold it with: steam-updater init-resources
+resources_dir: resources
+# Model for the optimizer stage; empty means use `model` above.
+optimizer_model: ""
+optimizer_max_tokens: 16000
+
 # Steam truncates short descriptions at roughly 300 characters.
 short_description_field: app[content][short_description]
 short_description_max_chars: 300

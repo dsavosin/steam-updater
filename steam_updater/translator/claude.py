@@ -26,8 +26,12 @@ _SYSTEM_PROMPT = textwrap.dedent(
     Hard rules:
     - Preserve all Steam BBCode markup EXACTLY: tags such as [h1][/h1], [b][/b],
       [i][/i], [u][/u], [list][*][/list], [url=...][/url], [quote][/quote],
-      [code], [strike], [spoiler], [img], [previewyoutube]. Translate the visible
-      text inside tags, never the tag names, attributes, or URLs.
+      [code], [strike], [spoiler], [img], [video], [previewyoutube]. Translate
+      the visible text inside tags, never the tag names, attributes, or URLs.
+    - Preserve Steam asset macros byte-for-byte: any occurrence of
+      {STEAM_APP_IMAGE}, any /extras/... path, and every attribute value inside
+      [img ...] and [video ...] tags (mp4=, webm=, poster=, autoplay=) must
+      remain exactly as written.
     - Keep line breaks and paragraph structure intact.
     - Do NOT translate proper nouns: the game's title, character names, place
       names, brand names, and trademarks stay in their original form unless a

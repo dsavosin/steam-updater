@@ -16,3 +16,7 @@ venv/
 # Tool output
 localization.translated.json
 *.translated.json
+.DS_Store
+
+# Claude Code local settings
+.claude/

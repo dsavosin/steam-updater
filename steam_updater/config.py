@@ -25,6 +25,11 @@ class Config:
         fields: Field keys to translate, e.g. app[content][about].
         model: Anthropic model id.
         max_tokens: Output token ceiling per translation request.
+        resources_dir: Folder with optimizer resources (game.md, examples/,
+            assets.yaml).
+        optimizer_model: Anthropic model id for the optimizer; empty means use
+            ``model``.
+        optimizer_max_tokens: Output token ceiling per optimizer request.
         short_description_field: Which field is treated as the short description.
         short_description_max_chars: Character budget for the short description.
         do_not_translate: Terms kept verbatim (game name, characters, ...).
@@ -37,11 +42,18 @@ class Config:
     fields: list[str] = field(default_factory=lambda: list(DEFAULT_FIELDS))
     model: str = DEFAULT_MODEL
     max_tokens: int = 8000
+    resources_dir: str = "resources"
+    optimizer_model: str = ""
+    optimizer_max_tokens: int = 16000
     short_description_field: str = FIELD_SHORT_DESCRIPTION
     short_description_max_chars: int = 300
     do_not_translate: list[str] = field(default_factory=list)
     glossary: dict[str, str] = field(default_factory=dict)
     style: str = ""
+
+    @property
+    def effective_optimizer_model(self) -> str:
+        return self.optimizer_model or self.model
 
     def __post_init__(self) -> None:
         self.source_language = languages.normalize(self.source_language)

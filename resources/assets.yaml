@@ -1,0 +1,21 @@
+# Media assets for the store description.
+#
+# Each entry describes a gif/image/video you have uploaded (or will upload)
+# in Steamworks -> Edit Store Page -> Description Assets. The optimizer
+# embeds them next to the feature copy they showcase using the
+# {STEAM_APP_IMAGE}/extras/<file> macro, so the description works in every
+# language without re-uploading anything.
+#
+# Steam constraints: animated assets max 12 seconds; ~1170px wide recommended;
+# keep each image under 5MB and the whole page under ~15MB.
+#
+# assets:
+#   - file: combat_loop.mp4      # exact filename as uploaded
+#     type: video                # video | gif | image
+#     poster: combat_poster.png  # optional, videos only
+#     shows: "Fast-paced ship combat with modular weapons"
+#   - file: base_building.gif
+#     type: gif
+#     shows: "Drag-and-drop ship building"
+
+assets: []
